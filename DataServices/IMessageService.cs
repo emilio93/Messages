@@ -12,9 +12,9 @@ namespace Messages.DataServices
      */
     interface IMessageService
     {
-        IEnumerable<IMessage> getAllMessages();
+        Task<IEnumerable<IMessage>> getAllMessages();
 
-        bool storeMessage(IMessage message);
+        Task<bool> storeMessage(IMessage message);
     }
 
 }
