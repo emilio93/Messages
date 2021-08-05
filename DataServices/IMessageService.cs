@@ -10,7 +10,7 @@ namespace Messages.DataServices
      * This interface connects with the database to retrieve and store
      * messages.
      */
-    interface IMessageService
+    public interface IMessageService
     {
         Task<IEnumerable<IMessage>> getAllMessages();
 
