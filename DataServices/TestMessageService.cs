@@ -14,8 +14,7 @@ namespace Messages.DataServices
 
         public async Task<IEnumerable<IMessage>> getAllMessages()
         {
-            IEnumerable<IMessage> messages = new List<IMessage>();
-
+            IList<IMessage> messages = new List<IMessage>();
             if (this.probabilityTest())
             {
                 for (int i = 1; i < 10; i++)
@@ -27,7 +26,7 @@ namespace Messages.DataServices
                         $"author {i}",
                         DateTime.Now
                     );
-                    messages.Append(newMessage);
+                    messages.Add(newMessage);
                 }
 
             }
