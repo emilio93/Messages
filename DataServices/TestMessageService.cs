@@ -1,4 +1,4 @@
-﻿using Messages.Models;
+using Messages.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace Messages.DataServices
 
             if (this.probabilityTest())
             {
-                for (int i = 1; i < 0; i++)
+                for (int i = 1; i < 10; i++)
                 {
                     IMessage newMessage = new Message(
                         i,
