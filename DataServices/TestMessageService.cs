@@ -12,6 +12,11 @@ namespace Messages.DataServices
         private readonly double SUCCESS_PROBABILITY = 0.95;
         private readonly Random _random = new Random();
 
+        public TestMessageService()
+        {
+            Console.WriteLine("TestMessageService Instantiated.");
+        }
+
         public async Task<IEnumerable<IMessage>> getAllMessages()
         {
             IList<IMessage> messages = new List<IMessage>();
