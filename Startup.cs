@@ -1,3 +1,4 @@
+using Messages.DataServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,6 +34,8 @@ namespace Messages
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Messages", Version = "v1" });
             });
+
+            services.AddScoped<IMessageService, TestMessageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
