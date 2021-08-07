@@ -36,5 +36,10 @@ namespace Messages.Models
             this.Author = author;
             this.SentAt = sentAt;
         }
+
+        public Message()
+        {
+
+        }
     }
 }
