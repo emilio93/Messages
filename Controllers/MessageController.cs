@@ -1,4 +1,4 @@
-﻿using Messages.DataServices;
+using Messages.DataServices;
 using Messages.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -16,10 +16,12 @@ namespace Messages.Controllers
     public class MessageController : ControllerBase
     {
         private readonly ILogger<MessageController> _logger;
+        private readonly IMessageService _messageService;
 
-        public MessageController(ILogger<MessageController> logger)
+        public MessageController(ILogger<MessageController> logger, IMessageService messageService)
         {
             _logger = logger;
+            _messageService = messageService;
         }
 
         /**
@@ -28,47 +30,12 @@ namespace Messages.Controllers
          */
         /*
         [HttpGet]
-        public IEnumerable<IMessage> Get()
+        public async Task<IEnumerable<IMessage>> GetAllMessages()
         {
-            IMessageService messageService = null; // new MessageService()
-            IEnumerable<IMessage> messages = messageService.getAllMessages();
-            
+            Console.WriteLine($"GetAllMessages() started at {DateTime.Now}");
+            IEnumerable<IMessage> messages = await _messageService.getAllMessages();
+            Console.WriteLine($"GetAllMessages() finished at {DateTime.Now}");
             return messages;
-        }
-        */
-        /*
-        [HttpGet]
-        public string Get()
-        {
-            List<Test> list = new List<Test>();
-            list.Add(new Test("1", "Saludo", "Hola mundo", "Joy", "2021-08-04"));
-            string a = JsonSerializer.Serialize(list);
-            return a;
-        }*/
-        [HttpGet]
-        public virtual ActionResult<IEnumerable<Message>> GetAllMessages()
-        {
-            var response = new List<Message>
-            {
-                new Message
-                {
-                    Id = 123,
-                    Subject = "Nada",
-                    Content = "Hola mundo", 
-                    Author = "Joy",
-                    SendAt = DateTime.Now
-                },
-                new Message
-                {
-                    Id = 321,
-                    Subject = "Todo",
-                    Content = "Hola mundo",
-                    Author = "Joy",
-                    SendAt = DateTime.Now
-                }
-            };
-
-            return this.Ok(response);
         }
 
         /**
