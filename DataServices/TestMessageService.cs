@@ -8,15 +8,28 @@ namespace Messages.DataServices
 {
     public class TestMessageService : IMessageService
     {
-
+        /**
+         * Probability of get and store methods to succed.
+         */
         private readonly double SUCCESS_PROBABILITY = 0.95;
+
+        /**
+         * Random object to generate random numbers.
+         */
         private readonly Random _random = new Random();
 
+        /**
+         * Default constructor indicates the instantiation of the 
+         * object.
+         */
         public TestMessageService()
         {
             Console.WriteLine("TestMessageService Instantiated.");
         }
 
+        /**
+         * Returns a list of predefined IMessage items.
+         */
         public async Task<IEnumerable<IMessage>> getAllMessages()
         {
             IList<IMessage> messages = new List<IMessage>();
@@ -39,6 +52,10 @@ namespace Messages.DataServices
             return messages;
         }
 
+        /**
+         * Being a test class, the storage service is dummy 
+         * and doesn't store the IMessage anywhere.
+         */
         public async Task<bool> storeMessage(IMessage message)
         {
             await Task.Delay(1000);
@@ -47,6 +64,11 @@ namespace Messages.DataServices
 
         }
 
+        /**
+         * Returns true or false depending on SUCCESS_PROBABILITY.
+         * For example, if SUCCESS_PROBABILITY IS 0.6, 3 out of 5 
+         * times, the result will be true,
+         */
         private bool probabilityTest()
         {
             if (SUCCESS_PROBABILITY > 1) return true;

@@ -12,14 +12,22 @@ namespace Messages.DataServices
 {
     public class DBMessageService : IMessageService
     {
-
+        /**
+         * The database service object.
+         */
         private IDBService _db;
 
+        /**
+         * Sets the database service object to the provided one.
+         */
         public DBMessageService(IDBService db)
         {
             this._db = db;
         }
 
+        /**
+         * Request all messages from the database service.
+         */
         public async Task<IEnumerable<IMessage>> getAllMessages()
         {
             DataTable table = await this._db.getAllMessages();
@@ -39,7 +47,9 @@ namespace Messages.DataServices
             return messages;
         }
 
-
+        /**
+         * Stores a message thru the database service.
+         */
         public async Task<bool> storeMessage(IMessage message)
         {
             try
