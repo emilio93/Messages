@@ -13,13 +13,9 @@ namespace Messages.DataServices
     {
         private readonly string GET_QUERY = @"
             SELECT 
-                idmessages,
-                author,
-                subject,
-                content,
-                DATE_FORMAT(sentAt,'%Y-%m-%d') as sentAt 
+                * 
             FROM 
-                messages
+                messages_view;
         ";
 
         private readonly string POST_QUERY = $@"
