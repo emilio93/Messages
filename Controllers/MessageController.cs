@@ -26,7 +26,6 @@ namespace Messages.Controllers
 
         /**
          * Process a get request and returns an http response with all the available messages.
-         * 
          */
         [HttpGet]
         public async Task<IEnumerable<IMessage>> GetAllMessages()
@@ -39,6 +38,7 @@ namespace Messages.Controllers
 
         /**
          * Process a post request and returns a success or failure response.
+         * On success returns a 200 response, else a 503 response.
          */
         [HttpPost]
         public virtual async Task<ActionResult<Message>> CreateMessage(Message message)

@@ -9,7 +9,16 @@ namespace Messages.DataServices
 {
     public interface IDBService
     {
+        /**
+         * Obtains all the records within the messages table in the
+         * database.
+         */
         public Task<DataTable> getAllMessages();
+
+        /**
+         * Inserts a new record within the messages table in the
+         * database.
+         */
         public Task<bool> StoreMessage(IMessage message);
     }
 }
