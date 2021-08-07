@@ -35,7 +35,8 @@ namespace Messages
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Messages", Version = "v1" });
             });
 
-            services.AddScoped<IMessageService, TestMessageService>();
+            services.AddSingleton<IDBService, DBService>();
+            services.AddScoped<IMessageService, DBMessageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
