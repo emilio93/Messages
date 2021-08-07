@@ -1,4 +1,4 @@
-﻿using Messages.Models;
+using Messages.Models;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;
@@ -38,6 +38,7 @@ namespace Messages.DataServices
         ~DBService()
         {
             this.CloseConnection();
+            _mySqlConnection.Dispose();
         }
 
         public async Task<DataTable> getAllMessages()
