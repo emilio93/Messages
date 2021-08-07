@@ -54,15 +54,4 @@ namespace Messages.Controllers
             return this.NoContent();
         }
     }
-    public class Message
-    {
-        public long Id { get; set; }
-        public string Subject { get; set; }
-
-        public string Content { get; set; }
-        public string Author { get; set; }
-        public DateTime SendAt { get; set; }
-
-    }
-
 }
