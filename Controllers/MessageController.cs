@@ -41,16 +41,13 @@ namespace Messages.Controllers
          * Process a post request and returns a success or failure response.
          */
         [HttpPost]
-        public virtual ActionResult<Message> CreateMessage(Message message)
+        public virtual async Task<ActionResult<Message>> CreateMessage(Message message)
         {
-            // Research how to get params from the http request data.
-            // String author = request.getParam('Author');
-            // ...
-            // Research how to convert string to date.
-
-            
-            
-            return this.NoContent();
+            Console.WriteLine($"CreateMessage() started at {DateTime.Now}");
+            bool storeResult = await this._messageService.storeMessage(message);
+            Console.WriteLine($"CreateMessage() finished at {DateTime.Now}");
+            if (storeResult) return StatusCode(200);
+            return StatusCode(503);
         }
     }
 }
