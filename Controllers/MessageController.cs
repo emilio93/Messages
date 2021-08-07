@@ -28,7 +28,6 @@ namespace Messages.Controllers
          * Process a get request and returns an http response with all the available messages.
          * 
          */
-        /*
         [HttpGet]
         public async Task<IEnumerable<IMessage>> GetAllMessages()
         {
