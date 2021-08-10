@@ -34,13 +34,13 @@ namespace Messages.DataServices
             IList<IMessage> messages = new List<IMessage>();
             foreach (DataRow row in table.Rows)
             {
-                IMessage message = new Message(
-                    Convert.ToInt32(row["idmessages"]),
-                    row["author"].ToString(),
-                    row["subject"].ToString(),
-                    row["content"].ToString(),
-                    DateTime.Now
-                );
+                IMessage message = new Message {
+                    Id = Convert.ToInt32(row["idmessages"]),
+                    Author = row["author"].ToString(),
+                    Subject = row["subject"].ToString(),
+                    Content= row["content"].ToString(),
+                    SentAt = DateTime.Now
+                };
                 messages.Add(message);
             }
 

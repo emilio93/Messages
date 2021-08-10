@@ -41,13 +41,13 @@ namespace Messages.DataServices
             {
                 for (int i = 1; i < 10; i++)
                 {
-                    IMessage newMessage = new Message(
-                        i,
-                        $"subject {i}",
-                        $"content {i}",
-                        $"author {i}",
-                        DateTime.Now
-                    );
+                    IMessage newMessage = new Message {
+                        Id = i,
+                        Subject = $"subject {i}",
+                        Content = $"content {i}",
+                        Author = $"author {i}",
+                        SentAt = DateTime.Now
+                    };
                     messages.Add(newMessage);
                 }
 
