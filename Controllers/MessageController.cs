@@ -30,9 +30,9 @@ namespace Messages.Controllers
         [HttpGet]
         public async Task<IEnumerable<IMessage>> GetAllMessages()
         {
-            Console.WriteLine($"GetAllMessages() started at {DateTime.Now}");
+            _logger.LogInformation($"GetAllMessages() started at {DateTime.Now}");
             IEnumerable<IMessage> messages = await _messageService.GetAllMessages();
-            Console.WriteLine($"GetAllMessages() finished at {DateTime.Now}");
+            _logger.LogInformation($"GetAllMessages() finished at {DateTime.Now}");
             return messages;
         }
 
@@ -43,9 +43,9 @@ namespace Messages.Controllers
         [HttpPost]
         public virtual async Task<ActionResult<Message>> CreateMessage(Message message)
         {
-            Console.WriteLine($"CreateMessage() started at {DateTime.Now}");
+            _logger.LogInformation($"CreateMessage() started at {DateTime.Now}");
             bool storeResult = await this._messageService.StoreMessage(message);
-            Console.WriteLine($"CreateMessage() finished at {DateTime.Now}");
+            _logger.LogInformation($"CreateMessage() finished at {DateTime.Now}");
             if (storeResult) return StatusCode(200);
             return StatusCode(503);
         }

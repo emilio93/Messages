@@ -1,4 +1,5 @@
 using Messages.Models;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +19,16 @@ namespace Messages.DataServices
          */
         private readonly Random _random = new Random();
 
+        private readonly ILogger<TestMessageService> _logger;
+
         /**
          * Default constructor indicates the instantiation of the 
          * object.
          */
-        public TestMessageService()
+        public TestMessageService(ILogger<TestMessageService> logger)
         {
-            Console.WriteLine("TestMessageService Instantiated.");
+            _logger = logger;
+            _logger.LogInformation("TestMessageService Instantiated.");
         }
 
         /**
