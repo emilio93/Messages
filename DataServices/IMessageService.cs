@@ -15,12 +15,12 @@ namespace Messages.DataServices
         /**
          * Gets all the stored messages from the adequate storage service.
          */
-        Task<IEnumerable<IMessage>> getAllMessages();
+        Task<IEnumerable<IMessage>> GetAllMessages();
 
         /**
          * Stores an IMessage representation in the adequate storage
          * service.
          */
-        Task<bool> storeMessage(IMessage message);
+        Task<bool> StoreMessage(IMessage message);
     }
 }

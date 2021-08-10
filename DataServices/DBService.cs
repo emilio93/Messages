@@ -62,7 +62,7 @@ namespace Messages.DataServices
         /**
          * Obtains all the messages from the database.
          */
-        public async Task<DataTable> getAllMessages()
+        public async Task<DataTable> GetAllMessages()
         {
             DataTable table = new DataTable();
             this.OpenConnection();

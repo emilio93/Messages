@@ -31,7 +31,7 @@ namespace Messages.Controllers
         public async Task<IEnumerable<IMessage>> GetAllMessages()
         {
             Console.WriteLine($"GetAllMessages() started at {DateTime.Now}");
-            IEnumerable<IMessage> messages = await _messageService.getAllMessages();
+            IEnumerable<IMessage> messages = await _messageService.GetAllMessages();
             Console.WriteLine($"GetAllMessages() finished at {DateTime.Now}");
             return messages;
         }
@@ -44,7 +44,7 @@ namespace Messages.Controllers
         public virtual async Task<ActionResult<Message>> CreateMessage(Message message)
         {
             Console.WriteLine($"CreateMessage() started at {DateTime.Now}");
-            bool storeResult = await this._messageService.storeMessage(message);
+            bool storeResult = await this._messageService.StoreMessage(message);
             Console.WriteLine($"CreateMessage() finished at {DateTime.Now}");
             if (storeResult) return StatusCode(200);
             return StatusCode(503);

@@ -30,10 +30,10 @@ namespace Messages.DataServices
         /**
          * Returns a list of predefined IMessage items.
          */
-        public async Task<IEnumerable<IMessage>> getAllMessages()
+        public async Task<IEnumerable<IMessage>> GetAllMessages()
         {
             IList<IMessage> messages = new List<IMessage>();
-            if (this.probabilityTest())
+            if (this.ProbabilityTest())
             {
                 for (int i = 1; i < 10; i++)
                 {
@@ -56,10 +56,10 @@ namespace Messages.DataServices
          * Being a test class, the storage service is dummy 
          * and doesn't store the IMessage anywhere.
          */
-        public async Task<bool> storeMessage(IMessage message)
+        public async Task<bool> StoreMessage(IMessage message)
         {
             await Task.Delay(1000);
-            if (this.probabilityTest()) return true;
+            if (this.ProbabilityTest()) return true;
             return false;
 
         }
@@ -69,7 +69,7 @@ namespace Messages.DataServices
          * For example, if SUCCESS_PROBABILITY IS 0.6, 3 out of 5 
          * times, the result will be true,
          */
-        private bool probabilityTest()
+        private bool ProbabilityTest()
         {
             if (SUCCESS_PROBABILITY > 1) return true;
             if (SUCCESS_PROBABILITY < 0) return false;

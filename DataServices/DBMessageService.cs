@@ -28,9 +28,9 @@ namespace Messages.DataServices
         /**
          * Request all messages from the database service.
          */
-        public async Task<IEnumerable<IMessage>> getAllMessages()
+        public async Task<IEnumerable<IMessage>> GetAllMessages()
         {
-            DataTable table = await this._db.getAllMessages();
+            DataTable table = await this._db.GetAllMessages();
             IList<IMessage> messages = new List<IMessage>();
             foreach (DataRow row in table.Rows)
             {
@@ -50,7 +50,7 @@ namespace Messages.DataServices
         /**
          * Stores a message thru the database service.
          */
-        public async Task<bool> storeMessage(IMessage message)
+        public async Task<bool> StoreMessage(IMessage message)
         {
             try
             {

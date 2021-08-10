@@ -13,7 +13,7 @@ namespace Messages.DataServices
          * Obtains all the records within the messages table in the
          * database.
          */
-        public Task<DataTable> getAllMessages();
+        public Task<DataTable> GetAllMessages();
 
         /**
          * Inserts a new record within the messages table in the
